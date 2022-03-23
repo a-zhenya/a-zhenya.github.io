@@ -364,7 +364,7 @@ margin: 3px 0px 3px 0px;
 <a class="btn btn-primary video" href="https://youtu.be/6sTm7yujsc8">Видео</a></p>
 <p>3. Цифровые фильтры. Акустические признаки.<br>
 <a class="btn btn-primary" href="https://data.vk.company/curriculum/program/lesson/19336/">Смешанное занятие 3</a>
-</p>
+<a class="btn btn-primary video" href="https://youtu.be/qrfu5yF3Tqc">Видео</a></p>
 <p>4. Цифровая обработка сигналов и машинное обучение<br>
 <a class="btn btn-primary" href="https://data.vk.company/curriculum/program/lesson/19337/">Смешанное занятие 4</a>
 </p>
@@ -3534,9 +3534,10 @@ function process_video_elem(parent) {
   parent.after(txt)
   txt.after(href_copy)
 
+  const href = parent.href
   href_copy.onclick = function() {
 	  const tx = document.createElement('textarea')
-	  tx.value = parent.href
+	  tx.value = href
 	  document.body.appendChild(tx)	  
 	  tx.select()
 	  document.execCommand('copy')
@@ -3553,9 +3554,10 @@ function process_video_elem(parent) {
   href_copy.after(txt)
   txt.after(cmd_copy)
               
+  const cmd = "python -m youtube_dl --continue --retries infinite --socket-timeout 99 \"" + parent.href + "\""
   cmd_copy.onclick = function() {
 	  const tx = document.createElement('textarea');
-	  tx.value = "python -m youtube_dl -c -R infinite \"" + parent.href + "\""
+	  tx.value = cmd
 	  document.body.appendChild(tx)
 	  tx.select()
 	  document.execCommand('copy')
