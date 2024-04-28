@@ -4529,7 +4529,7 @@ function process_video_el(parent, is_playlist) {
     txt.after(btn)
     prev = btn
     const text_to_copy = (
-      (i == 0) ? parent.href : "python -m youtube_dl --continue"
+      (i == 0) ? parent.href : "python3 -m yt_dlp -f \"b[filesize<1G] / w\" --continue"
       + " --retries infinite --socket-timeout 99 "
       + "\"" + parent.href + "\""
     )
